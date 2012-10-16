@@ -9,22 +9,20 @@ cli.parse({
 });
 
 cli.main(function (args, options) {
-	if (!options.config) {
-		throw new Error("config is required");
-	}
-
 	var self = this;
 
-	require("fs").readFile(options.config, function (err, data) {
-		var server = require("../lib/node-devserver")(JSON.parse(data.toString()));
+	if (options.config) {
+		require("fs").readFile(options.config, function (err, data) {
+			var server = require("../lib/node-devserver")(JSON.parse(data.toString()));
 
-		if (options.host) {
-			server.listen(options.host, options.port);
-			self.ok("Server stated on host " + options.host + " and port " + options.port);
-		}
-		else {
-			server.listen(options.port);
-			self.ok("Server stated on port " + options.port);
-		}
-	});
+			if (options.host) {
+				server.listen(options.host, options.port);
+				self.ok("Server stated on " + options.host + ":" + options.port);
+			}
+			else {
+				server.listen(options.port);
+				self.ok("Server stated on :" + options.port);
+			}
+		});
+	}
 });
