@@ -17,7 +17,8 @@
     "http-proxy": "0.8.x",
     "pause": "0.0.x",
     "send": "0.1.x",
-    "xregexp": "2.0.x"
+    "xregexp": "2.0.x",
+    "daemon": "0.5.x"
   },
   "main": "./lib/node-devserver",
   "bin": "./bin/node-devserver"
