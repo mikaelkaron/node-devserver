@@ -20,7 +20,7 @@
     "xregexp": "2.0.x"
   },
   "main": "./lib/node-devserver",
+  "bin": "./bin/node-devserver",
   "engines": {
-    "node": ">= 0.8.11"
   }
 }
