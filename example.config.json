@@ -1,5 +1,5 @@
 {
-	"static" : {
+	"frontend" : {
 		"root" : "root"
 	},
 
@@ -8,11 +8,6 @@
 			"proxy" : {
 				"host" : "${uat}.ef.com",
 				"port" : 80
-			},
-			"request" : {
-				"headers" : {
-					"host" : "${vhost}"
-				}
 			}
 		}
 	}

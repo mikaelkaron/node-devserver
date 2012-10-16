@@ -1,48 +1,30 @@
 #!/usr/bin/env node
 
-var path = require('path');
-var fs = require('fs');
-var util  = require('util');
-var argv = require('optimist').argv;
-var devserver = require('../lib/node-devserver');
+var cli = require("cli").enable("daemon");
 
-var help = [
-	"usage: node-devserver [options] ",
-	"",
-	"Starts a node-devserver server using the specified command-line options",
-	"",
-	"options:",
-	"  --port   PORT       Port that the server should run on",
-	"  --host   HOST       Host that the server server should run on",
-	"  --config OUTFILE    Location of the configuration file for the server",
-	"  -h, --help          You're staring at it"
-].join('\n');
+cli.parse({
+	"port" : [ "p", "Listen on this port", "number", 80 ],
+	"host" : [ "h", "Listen on this host", "string" ],
+	"config" : [ "c", "Config file", "path" ]
+});
 
-if (argv.h || argv.help || Object.keys(argv).length === 2) {
-	return util.puts(help);
-}
-
-var config = {};
-var port = argv.port || 80;
-var host = argv.host || undefined;
-
-if (argv.config) {
-	try {
-		var data = fs.readFileSync(argv.config);
-		config = JSON.parse(data.toString());
-	} catch (ex) {
-		util.puts('Error starting node-devserver: ' + ex);
-		process.exit(1);
+cli.main(function (args, options) {
+	if (!options.config) {
+		throw new Error("config is required");
 	}
-}
 
-var server = new devserver(config);
+	var self = this;
 
-if (host) {
-	server.listen(port, host)
-}
-else {
-	server.listen(port);
-}
+	require("fs").readFile(options.config, function (err, data) {
+		var server = require("../lib/node-devserver")(JSON.parse(data.toString()));
 
-util.puts('node-devserver now listening on port: ' + port);
+		if (options.host) {
+			server.listen(options.host, options.port);
+			self.ok("Server stated on host " + options.host + " and port " + options.port);
+		}
+		else {
+			server.listen(options.port);
+			self.ok("Server stated on port " + options.port);
+		}
+	});
+});

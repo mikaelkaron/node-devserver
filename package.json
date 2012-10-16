@@ -1,6 +1,6 @@
 {
   "name": "devserver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple local development server",
   "author": {
     "name": "Mikael Karon",
@@ -11,7 +11,7 @@
     "url": "http://github.com/mikaelkaron/node-devserver.git"
   },
   "dependencies": {
-    "optimist": "0.3.x",
+    "cli": "0.4.x",
     "async": "0.1.x",
     "connect": "2.5.x",
     "http-proxy": "0.8.x",
@@ -20,7 +20,5 @@
     "xregexp": "2.0.x"
   },
   "main": "./lib/node-devserver",
-  "bin": "./bin/node-devserver",
-  "engines": {
-  }
+  "bin": "./bin/node-devserver"
 }
