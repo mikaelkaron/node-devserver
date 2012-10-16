@@ -1,6 +1,6 @@
 {
   "name": "devserver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple local development server",
   "author": {
     "name": "Mikael Karon",
@@ -17,8 +17,7 @@
     "http-proxy": "0.8.x",
     "pause": "0.0.x",
     "send": "0.1.x",
-    "xregexp": "2.0.x",
-    "daemon": "0.5.x"
+    "xregexp": "2.0.x"
   },
   "main": "./lib/node-devserver",
   "bin": "./bin/node-devserver"

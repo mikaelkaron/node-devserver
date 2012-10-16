@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var cli = require("cli").enable("daemon");
+var cli = require("cli");
 
 cli.parse({
 	"port" : [ "p", "Listen on this port", "number", 80 ],
