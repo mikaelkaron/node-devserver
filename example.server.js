@@ -3,5 +3,5 @@ require("fs").readFile("example.config.json", function (err, data) {
 		throw new Error(err);
 	}
 
-	require("./lib/node-devserver")(JSON.parse(data.toString())).listen(8080);
+	require("./lib/node-devserver").apply(null, JSON.parse(data.toString())).listen(8080);
 });

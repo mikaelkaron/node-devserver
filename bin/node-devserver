@@ -13,7 +13,7 @@ cli.main(function (args, options) {
 
 	if (options.config) {
 		require("fs").readFile(options.config, function (err, data) {
-			var server = require("../lib/node-devserver")(JSON.parse(data.toString()));
+			var server = require("../lib/node-devserver").apply(null, JSON.parse(data.toString()));
 
 			if (options.host) {
 				server.listen(options.host, options.port);
