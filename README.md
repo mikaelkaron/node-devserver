@@ -12,55 +12,56 @@ node-devserver combines these two into one.
 
 When a request comes in node-devserver will first try to serve the request from the local filesystem, and if unsuccessfull proxy the request to a remote server. For example: let's say we get make a request to `http://some.domain.local/a/file.ext` (asuming that `some.domain.local` is pointing to our local machine) - node-devserver will try to serve the file from these locations (in order)
 
- * `root/some.domain.com/a/file.ext`
- * `root/domain.com/a/file.ext`
- * `root/com/a/file.ext`
- * `root/a/file.ext`
+* `root/some.domain.com/a/file.ext`
+* `root/domain.com/a/file.ext`
+* `root/com/a/file.ext`
+* `root/a/file.ext`
 
 If none of these work the request will be proxied to a remote server.
 
 ## Configuration
 
-There are two parts to node-devserver's configuration file `frontend` and `backend` (local / proxied). And example configuraton file could look like this:
+The node-devserver configuration file is basically an array of middlewares to load (in order). And example configuraton file could look like this:
 
 ```json
-{
-	"frontend" : {
-		"root" : "root"
-	},
-
-	"backend" : {
-		"^(?<vhost>\\w+)\\.local" : {
-			"proxy" : {
-				"host" : "${vhost}.remote",
-				"port" : 80
-			}
-		}
-	}
-}
-```
-
-### `frontend` configuration
-
-```json
-{
-	"root" : "root"
-}
-```
-
-The `frontend` configuration section is quite straight forward - it contains one element called `root` that can be either a string or an array of strings that point out the location(s) where static files are served from.
-
-### `backend` configuration
-
-```json
-{
-	"^(?<vhost>\\w+)\\.local" : {
+[{
+	"module" : "./middleware/frontend",
+	"arguments" : [ "root" ]
+}, {
+	"module" : "./middleware/backend",
+	"arguments" : [{
+		"regexp" : "^(?:(?<uat>cns-etuat-\\d+)\\.)?(?<vhost>\\w+\\.englishtown\\.com)",
 		"proxy" : {
-			"host" : "${vhost}.remote",
+			"host" : "${uat}.ef.com",
 			"port" : 80
 		}
+	}]
+}]
+```
+
+### `frontend` module configuration
+
+The `frontend` middleware is responsible for serving local files.
+
+The configuration is quite straight forward - `arguments` is an array of strings that point out the location(s) where static files are served from.
+
+### `backend` module configuration
+
+```json
+{
+	"regexp" : "^(?<vhost>\\w+)\\.local",
+	"proxy" : {
+		"host" : "${vhost}.remote",
+		"port" : 80
 	}
 }
 ```
 
-`backend` elements match url's to remote servers. Each key gets converted to a regular expression using [XRegExp](http://xregexp.com). Captures can later be used to replace placeholders.
+The `backend` middleware matches url's to remote servers.
+
+Options are tried in order like this:
+
+* parse `regexp` using [XRegExp](http://xregexp.com)
+* match request agains `regexp` and store capture
+* replace placeholders with captured elements
+* proxy request using the `proxy` argument
