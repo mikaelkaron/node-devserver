@@ -1,6 +1,6 @@
 {
   "name": "devserver",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Simple local development server",
   "author": {
     "name": "Mikael Karon",
