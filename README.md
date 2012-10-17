@@ -43,7 +43,7 @@ There are two parts to node-devserver's configuration file `frontend` and `backe
 ### `frontend` configuration
 
 ```json
-"frontend" : {
+{
 	"root" : "root"
 }
 ```
@@ -53,7 +53,7 @@ The `frontend` configuration section is quite straight forward - it contains one
 ### `backend` configuration
 
 ```json
-"backend" : {
+{
 	"^(?<vhost>\\w+)\\.local" : {
 		"proxy" : {
 			"host" : "${vhost}.remote",
