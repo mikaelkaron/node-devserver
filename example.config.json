@@ -1,8 +1,8 @@
 [{
-	"module" : "./middleware/frontend",
+	"module" : "./node-devserver.frontend",
 	"arguments" : [ "root" ]
 }, {
-	"module" : "./middleware/backend",
+	"module" : "./node-devserver.backend",
 	"arguments" : [{
 		"regexp" : "^(?:(?<uat>cns-etuat-\\d+)\\.)?(?<vhost>\\w+\\.englishtown\\.com)",
 		"proxy" : {
