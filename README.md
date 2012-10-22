@@ -30,9 +30,9 @@ The node-devserver configuration file is basically an array of middlewares to lo
 }, {
 	"module" : "./middleware/backend",
 	"arguments" : [{
-		"regexp" : "^(?:(?<uat>cns-etuat-\\d+)\\.)?(?<vhost>\\w+\\.englishtown\\.com)",
+		"regexp" : "^(?<uat>cns-etuat-\\d+)\\.(?<vhost>.+)",
 		"proxy" : {
-			"host" : "${uat}.ef.com",
+			"host" : "${uat}.remote",
 			"port" : 80
 		}
 	}]
@@ -49,9 +49,9 @@ The configuration is quite straight forward - `arguments` is an array of strings
 
 ```json
 {
-	"regexp" : "^(?<vhost>\\w+)\\.local",
+	"regexp" : "^(?<uat>cns-etuat-\\d+)\\.(?<vhost>.+)",
 	"proxy" : {
-		"host" : "${vhost}.remote",
+		"host" : "${uat}.remote",
 		"port" : 80
 	}
 }
