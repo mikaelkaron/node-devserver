@@ -4,7 +4,7 @@
 }, {
 	"module" : "./node-devserver.backend",
 	"arguments" : [{
-		"regexp" : "^(?:(?<uat>cns-etuat-\\d+)\\.)?(?<vhost>\\w+\\.englishtown\\.com)",
+		"regexp" : "^(?<uat>cns-etuat-\\d+)\\.(?<vhost>.+)",
 		"proxy" : {
 			"host" : "${uat}.ef.com",
 			"port" : 80
