@@ -1,24 +1,37 @@
 {
-  "name": "devserver",
-  "version": "0.1.1",
-  "description": "Simple local development server",
-  "author": {
-    "name": "Mikael Karon",
-    "email": "mikael@karon.se"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/mikaelkaron/node-devserver.git"
-  },
-  "dependencies": {
-    "cli": "0.4.x",
-    "async": "0.1.x",
-    "connect": "2.5.x",
-    "http-proxy": "0.8.x",
-    "pause": "0.0.x",
-    "send": "0.1.x",
-    "xregexp": "2.0.x"
-  },
-  "main": "./lib/node-devserver",
-  "bin": "./bin/node-devserver"
+	"name":"devserver",
+	"version":"0.2.0",
+	"description":"Simple local development server",
+
+	"author":{
+		"name":"Mikael Karon",
+		"email":"mikael@karon.se",
+		"url":"https://github.com/mikaelkaron"
+	},
+
+	"bugs":{
+		"url":"https://github.com/mikaelkaron/node-devserver/issues"
+	},
+
+	"repository":{
+		"type":"git",
+		"url":"http://github.com/mikaelkaron/node-devserver.git"
+	},
+
+	"dependencies":{
+		"connect":"2.5.x",
+		"cli":"0.4.x",
+		"http-proxy":"0.8.x",
+		"pause":"0.0.x",
+		"send":"0.1.x",
+		"xregexp":"2.0.x"
+	},
+
+	"directories":{
+		"lib":"./lib",
+		"bin":"./bin",
+		"example":"./example"
+	},
+
+	"main":"./lib/node-devserver"
 }
