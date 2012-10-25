@@ -1,6 +1,6 @@
 {
 	"name":"devserver",
-	"version":"0.2.0",
+	"version":"0.2.1-SNAPSHOT",
 	"description":"Simple local development server",
 
 	"author":{
@@ -19,12 +19,12 @@
 	},
 
 	"dependencies":{
-		"connect":"2.5.x",
-		"cli":"0.4.x",
-		"http-proxy":"0.8.x",
-		"pause":"0.0.x",
-		"send":"0.1.x",
-		"xregexp":"2.0.x"
+		"connect":">= 2.6.0",
+		"cli":">= 0.4.4",
+		"http-proxy":">= 0.8.4",
+		"pause":">= 0.0.1",
+		"send":">= 0.1.0",
+		"xregexp":">= 2.0.0"
 	},
 
 	"directories":{
