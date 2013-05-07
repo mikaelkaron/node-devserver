@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mikaelkaron/node-devserver.png)](https://travis-ci.org/mikaelkaron/node-devserver)
+
 # node-devserver
 
 A simple development server geared towards front-end developers and ADD (Api Driven Development) applications.
