@@ -27,11 +27,20 @@
 		"xregexp":">= 2.0.0"
 	},
 
+	"devDependencies": {
+		"grunt-contrib-jshint": "~0.6.0",
+		"grunt": "~0.4.1"
+	},
+
 	"directories":{
 		"lib":"./lib",
 		"bin":"./bin",
 		"example":"./example"
 	},
 
-	"main":"./lib/node-devserver"
+	"main":"./lib/node-devserver",
+
+	"scripts": {
+		"test": "grunt test"
+	}
 }
