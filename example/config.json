@@ -1,13 +1,13 @@
-[{
-	"module" : "./node-devserver.frontend",
-	"arguments" : [ "root" ]
-}, {
-	"module" : "./node-devserver.backend",
-	"arguments" : [{
-		"regexp" : "^(?<uat>cns-etuat-\\d+)\\.(?<vhost>.+)",
-		"proxy" : {
-			"host" : "${uat}.ef.com",
-			"port" : 80
+{
+	"frontend": [ "root" ],
+	"backend": [
+		{
+			"regexp": "^(?<uat>cns-etuat-\\d+)\\.(?<vhost>.+)",
+			"proxy": "web",
+			"options": {
+				"host": "${uat}.ef.com",
+				"port": 80
+			}
 		}
-	}]
-}]
+	]
+}
