@@ -19,12 +19,12 @@
 	},
 
 	"dependencies":{
-		"connect":">= 2.7.2",
-		"cli":">= 0.4.4-2",
-		"http-proxy":">= 0.8.7",
-		"pause":">= 0.0.1",
-		"send":">= 0.1.0",
-		"xregexp":">= 2.0.0"
+		"connect":"~2",
+		"cli":"~0",
+		"http-proxy":"~1",
+		"pause":"~0",
+		"send":"~0",
+		"xregexp":"~2"
 	},
 
 	"devDependencies": {
