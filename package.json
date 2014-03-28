@@ -1,6 +1,6 @@
 {
 	"name": "devserver",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"description": "Simple local development server",
 	"author": {
 		"name": "Mikael Karon",
@@ -17,7 +17,7 @@
 	"dependencies": {
 		"connect": "~2",
 		"cli": "~0",
-		"http-proxy": "~1",
+		"http-proxy": "~0",
 		"pause": "~0",
 		"send": "~0",
 		"xregexp": "~2"
